@@ -1,4 +1,4 @@
-import { getCSS } from "./common.js"
+import { getCSS, criarGrafico, incluirTexto } from "./common.js"
 async function redesFavoritasMundo() {
     const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/redes-favoritas.json'
     const res = await fetch(url)
@@ -46,3 +46,14 @@ Plotly.newPlot(grafico, data, layout);
 }
 
 redesFavoritasMundo();
+
+
+async function redesFavoritasMundo() {
+    const layout = {
+        legend: {
+        }
+    }
+    criarGrafico(data, layout)
+     incluirTexto(`Embora o <span>Instagram</span> ocupe a quarta posição de redes sociais com mais usuários no mundo, ela é a rede social que as pessoas mais gostam. Seguida de WhatsApp e Facebook. <br> Continuo escrevendo…`)
+}
+redesFavoritasMundo()
